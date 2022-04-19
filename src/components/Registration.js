@@ -1,5 +1,7 @@
 import { Row, Col, Container,Form,Card, Button, Stack} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { Link } from "react-router-dom";
+
 
 
 
@@ -68,11 +70,6 @@ function Registration() {
                 </Form.Group>
                 
                 </Stack>
-                
-
-                
-
-         
               
                 <div className="d-grid gap-2">
                   <Button variant="primary" size="sm">
@@ -80,7 +77,7 @@ function Registration() {
                   </Button>        
                 </div>       
                 <div className="d-grid gap-2">
-                  <a href="#"> Login Here</a>
+                <Link to= "/login"> Login Here</Link>
                 </div>
               </Form>
             </Card.Body>

@@ -1,5 +1,7 @@
 import { Row, Col, Container,Form,Card, Button} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { Link } from "react-router-dom";
+
 
 
 
@@ -28,7 +30,7 @@ function Login() {
                   </Button>        
                 </div>       
                 <div className="d-grid gap-2">
-                  <a href="#"> Register Here</a>
+                  <Link to= "/registration"> Register Here</Link>
                 </div>
               </Form>
             </Card.Body>
