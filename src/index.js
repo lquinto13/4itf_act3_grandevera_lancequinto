@@ -18,12 +18,12 @@ const rootElement = document.getElementById("root");
 
 root.render(
   <BrowserRouter>
- <Routes>
+    <Routes>
       <Route path="/" element={<App />} />
       <Route path="login" element={<Login />} />
-
       <Route path="registration" element={<Registration />} />
-    </Routes>  </BrowserRouter>,
+    </Routes>  
+  </BrowserRouter>,
   rootElement
 );
 
