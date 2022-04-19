@@ -15,8 +15,8 @@ function Login() {
             <Card.Body >
               <Form>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                  <Form.Label>Username</Form.Label>
-                  <Form.Control type="email" placeholder="name@example.com" />
+                  <Form.Label>Student ID</Form.Label>
+                  <Form.Control type="email" placeholder="20xxxxxxxx" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                   <Form.Label>Password</Form.Label>
