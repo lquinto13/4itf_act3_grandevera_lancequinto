@@ -10,7 +10,7 @@ function Login() {
       <Row>
         <Col></Col>
         <Col></Col>
-        <Col className = "pd50">
+        <Col className = "pd25">
           <Card>
             <Card.Body >
               <Form>
