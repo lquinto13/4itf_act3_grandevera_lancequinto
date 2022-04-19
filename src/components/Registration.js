@@ -10,7 +10,7 @@ function Registration() {
       <Row>
         <Col></Col>
         <Col></Col>
-        <Col className = "pd10">
+        <Col className = "pd15">
           <Card>
             <Card.Body >
               <Form>
