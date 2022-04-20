@@ -8,8 +8,11 @@ import './index.css'
 
 function App() {
   return (
-    <div style={{backgroundColor: '#DAFFEF'}}>
+    <div className="layoutLogin" style={{  backgroundColor: '#DAFFEF'}}>
+    <div></div>
+    <div className="loginDiv">
     <Login></Login>
+    </div>
     </div>
   );
 }

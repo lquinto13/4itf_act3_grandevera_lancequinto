@@ -5,11 +5,11 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import './index.css';
+// import './index.css';
 import App from './App';
 import Registration from './components/Registration';
 import Login from './components/Login';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

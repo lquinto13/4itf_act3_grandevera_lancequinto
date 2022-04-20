@@ -14,7 +14,7 @@ function Login() {
         <div className="loginCard">
           <div></div>
           <div>
-            <Col className="pd25">
+            <Col className="pd25 pdr10">
               <Card>
                 <Card.Title style={{margin:'15px 0px 20px 15px',fontWeight:'bold'}}>Student Portal Login</Card.Title>
                 <Card.Body >
