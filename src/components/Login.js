@@ -1,4 +1,6 @@
 import { Row, Col, Container, Form, Card, Button } from 'react-bootstrap';
+import React, {useState} from "react";
+
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Link } from "react-router-dom";
 import '../App.css'
@@ -6,18 +8,20 @@ import '../App.css'
 
 
 
-function Login() {
-  return (
 
+function Login() {
+  const [isRegistered, setIsRegigistered] = useState(false);
+
+  const renderLoginForm = (
     <Container>
       <Row>
         <div className="loginCard">
           <div></div>
           <div>
             <Col className="pd25 pdr10">
-              <Card>
-                <Card.Title style={{margin:'15px 0px 20px 15px',fontWeight:'bold'}}>Student Portal Login</Card.Title>
-                <Card.Body >
+              <Card className = "nobg">
+                <Card.Title  style={{margin:'15px 0px 20px 15px',fontWeight:'bold' }}>Student Portal Login</Card.Title>
+                <Card.Body className="nobg">
                   <Form>
                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                       <Form.Label>Student ID</Form.Label>
@@ -41,10 +45,16 @@ function Login() {
         </div>
       </Row>
     </Container>
+  );
 
-
-
-
+  return (
+    <div className ="app">    
+      <div style={{display:'flex', justifyContent:'center'}}>
+        <div className = "title">
+        </div>
+        {isRegistered ?<div>Success</div>:renderLoginForm}
+      </div>
+    </div>
   );
 }
 

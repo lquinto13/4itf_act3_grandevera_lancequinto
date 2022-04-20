@@ -1,3 +1,9 @@
+body{
+    background-color: #DAFFEF;
+    width: 100vw;
+    height: 100vh;
+}
+
 .loginCard{
 
     padding-top: 120px;
