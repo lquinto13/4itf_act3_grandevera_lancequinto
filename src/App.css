@@ -1,4 +1,12 @@
 .loginCard{
-    width: 550px;
+
     padding-top: 120px;
+}
+
+.layoutLogin{
+    align-items: center;
+}
+
+.loginDiv{
+    width: 550px;
 }

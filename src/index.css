@@ -1,30 +1,18 @@
 .pd25{
  padding-top: 25%;
 }
-
 .pd15{
   padding-top: 15%;
 
 }
-
 .pdr10{
   padding-right: 10px;
 }
-
 .layoutLogin{
   display: grid;
   grid-template-columns: 60% 40%;
 }
-
 .loginDiv{
   background-color: '#DAFFEF';
   height: 100vh;
 }
-
-html, body{
-  min-height:100%;
-  }
-
-  body{
-  height:100vh;
-  }
