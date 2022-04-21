@@ -152,9 +152,6 @@ function Registration() {
     <Container>
       <Row>
         <Col className="pd25">
-          <img src='.\media\website.png' height="300" width="300" class />
-        </Col>
-        <Col className="pd25">
           <Card>
             <Card.Body >
               Succesfully Registered
