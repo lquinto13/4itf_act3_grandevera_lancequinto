@@ -2,7 +2,7 @@
  padding-top: 25%;
 }
 .pd15{
-  padding-top: 15%;
+  padding-top: 2%;
 
 }
 .pdr10{
@@ -18,9 +18,28 @@
 }
 
 body{
-  background-color: #DAFFEF;
+  background-image: linear-gradient(#FEC00F, black, #FEC00F);
+
   width: 100vw;
   height: 100vh;
 } 
 
+
+.brandName {
+  font-family: "Trajan Pro"; src: url("//db.onlinewebfonts.com/t/12d2fa3dcf227b9538084a6bcfeafcf0.eot");
+  margin: 0;
+
+}
+
+.pr{
+  font-size: 20px;
+}
+
+.school{
+  font-size: 50px
+}
+
+.univ{
+  font-size: 20px
+}
 

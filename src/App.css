@@ -4,6 +4,10 @@ body{
     height: 100vh;
 }
 
+.cardImage{
+    width: 100%;
+}
+
 .loginCard{
 
     padding-top: 120px;

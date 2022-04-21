@@ -1,4 +1,6 @@
 import { Row, Col, Container, Form, Card, Button, Stack } from 'react-bootstrap';
+import Header from './Header';
+import UST from './images/UST.jpg';
 import React, { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Link } from "react-router-dom";
@@ -57,13 +59,9 @@ function Registration() {
 
   const renderRegistrationForm = (
     <Container>
-      <Row >
-        <Col className="pd25">
-          <img src='.\media\website.png' height="300" width="300" class />
-        </Col>
-
-        <Col className="pd15">
-          <Card>
+      <Row className="pd15">
+      <Col style ={{padding:'0px', height:'20vh'}}>
+          <Card style ={{ height:'70vh'}}>
             <Card.Title style={{ margin: '15px 0px 20px 15px', fontWeight: 'bold' }}>Student Portal Registration</Card.Title>
 
             <Card.Body >
@@ -140,6 +138,12 @@ function Registration() {
             </Card.Body>
           </Card>
         </Col>
+        <Col style ={{padding:'0px', height:'20vh'}}>
+          <img  src={UST} style={{ height: '70vh', width:'40vw'}}/>
+
+        </Col>
+
+       
       </Row>
     </Container>
   );
@@ -165,6 +169,7 @@ function Registration() {
 
   return (
     <div className="app">
+      <Header></Header>
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <div className="title">
         </div>
