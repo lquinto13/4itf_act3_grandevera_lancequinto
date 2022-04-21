@@ -1,5 +1,5 @@
-import { Row, Col, Container,Form,Card, Button, Stack} from 'react-bootstrap';
-import React, {useState} from "react";
+import { Row, Col, Container, Form, Card, Button, Stack } from 'react-bootstrap';
+import React, { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Link } from "react-router-dom";
 
@@ -8,86 +8,133 @@ import { Link } from "react-router-dom";
 
 function Registration() {
   const [errorMessages, setErrorMessages] = useState({});
-  
-  const [isRegistered, setIsRegigistered] = useState(false);
-  const handelSubmitReg = (event)=>{
+
+  const [isRegistered, setIsRegistered] = useState(false);
+
+  const [user, setUser] = useState({
+    studentId: "",
+    lastName: "",
+    firstName: "",
+    middleName: "",
+    college: "",
+    yearLevel: "",
+    programEnrolled: "",
+    password: "",
+    confirmPassword: ""
+
+  });
+
+  const changeHandler = (e) => {
+    // console.log(e.target)
+    setUser({ ...user, [e.target.name]: e.target.value })
+  }
+
+  console.table(user)
+
+  const handleSubmitReg = (event) => {
     event.preventDefault();
-    setIsRegigistered(true);
+    // studentId 10 digits
+
+    const { password, confirmPassword, studentId } = user
+
+    if (studentId.length === 10) {
+      // password === confirmPassword
+      if (password === confirmPassword) {
+        setIsRegistered(true);
+        // save to local storage the user attributes
+        localStorage.setItem("user", JSON.stringify(user));
+        alert("Registration successful! User details are saved to our system.")
+      } else {
+        alert("Password does not match. Please re enter both fields correctly.")
+      }
+    } else {
+      alert("Please enter a valid student ID No. with exactly 10 digits.")
+    }
+
+
 
   }
 
   const renderRegistrationForm = (
     <Container>
       <Row >
-        <Col className = "pd25">    
-          <img src='.\media\website.png' height="300" width="300" class/>
+        <Col className="pd25">
+          <img src='.\media\website.png' height="300" width="300" class />
         </Col>
-      
-        <Col className = "pd15">
+
+        <Col className="pd15">
           <Card>
-          <Card.Title style={{margin:'15px 0px 20px 15px',fontWeight:'bold'}}>Student Portal Registration</Card.Title>
+            <Card.Title style={{ margin: '15px 0px 20px 15px', fontWeight: 'bold' }}>Student Portal Registration</Card.Title>
 
             <Card.Body >
-              <Form onSubmit={handelSubmitReg}>
+              <Form onSubmit={handleSubmitReg}>
                 <Form.Group className="mb-3" >
                   <Form.Label>Student ID</Form.Label>
-                  <Form.Control type="text" placeholder="20xxxxxxxx" required/>
+                  <Form.Control name="studentId" type="text" placeholder="20xxxxxxxx" required onChange={changeHandler} />
                 </Form.Group>
 
                 <Stack direction="horizontal" gap={3}>
                   <Form.Group className="mb-3" >
                     <Form.Label>Last Name</Form.Label>
-                    <Form.Control type="text" placeholder="Dela Cruz" required />
-                  </Form.Group> 
+                    <Form.Control name="lastName" type="text" placeholder="Dela Cruz" required onChange={changeHandler} />
+                  </Form.Group>
 
                   <Form.Group className="mb-3" >
                     <Form.Label>Given Name</Form.Label>
-                    <Form.Control type="text" placeholder="Juan" required/>
-                  </Form.Group> 
+                    <Form.Control name="firstName" type="text" placeholder="Juan" required onChange={changeHandler} />
+                  </Form.Group>
 
                   <Form.Group className="mb-3" >
                     <Form.Label>Middle Name</Form.Label>
-                    <Form.Control type="text" placeholder="Mariano" required/>
-                  </Form.Group> 
+                    <Form.Control name="middleName" type="text" placeholder="Mariano" required onChange={changeHandler} />
+                  </Form.Group>
                 </Stack>
-                
+
                 <Stack direction="horizontal" gap={2}>
                   <Form.Group className="mb-3" >
                     <Form.Label>College</Form.Label>
-                    <Form.Control type="text" placeholder="CICS" required />
+                    <Form.Control name="college" type="text" placeholder="CICS" required onChange={changeHandler} />
                   </Form.Group>
 
                   <Form.Group className="mb-3" >
                     <Form.Label>Year Level</Form.Label>
-                    <Form.Control type="text" placeholder="1st Year" required />
+                    <Form.Select aria-label="Default select example" name="yearLevel" required onChange={changeHandler}>
+                      <option>--</option>
+                      <option value="1st Year">1st Year</option>
+                      <option value="2nd Year">2nd Year</option>
+                      <option value="3rd Year">3rd Year</option>
+                      <option value="4th Year">4th Year</option>
+                      <option value="5th Year">5th Year</option>
+                      </Form.Select>
                   </Form.Group>
                 </Stack>
 
                 <Form.Group className="mb-3" >
                   <Form.Label>Program Enrolled</Form.Label>
-                  <Form.Control type="text" placeholder="Information Technology" required/>
+                  <Form.Control name="programEnrolled" type="text" placeholder="Information Technology" required onChange={changeHandler} />
                 </Form.Group>
-
 
                 <Stack direction="horizontal" gap={2}>
                   <Form.Group className="mb-3" >
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" required/>
+                    <Form.Control name="password" type="password" placeholder="Password" required onChange={changeHandler} />
                   </Form.Group>
 
                   <Form.Group className="mb-3" >
                     <Form.Label>Confirm Password</Form.Label>
-                    <Form.Control type="password" placeholder="Confirm Password"required />
+                    <Form.Control name="confirmPassword" type="password" placeholder="Confirm Password" required onChange={changeHandler} />
                   </Form.Group>
                 </Stack>
-              
+
                 <div className="d-grid gap-2">
-                    <Button style={{backgroundColor:"#A7E99C", borderColor:"#A7E99C"}} type ="submit">
-                   Register
-                  </Button>        
-                </div>       
+                  <Button style={{ backgroundColor: "#A7E99C", borderColor: "#A7E99C" }} type="submit">
+                    Register
+                  </Button>
+                  <Button variant="danger" type="reset">Cancel</Button>
+
+                </div>
                 <div className="d-grid gap-2">
-                <Link to= "/login"> Login Here</Link>
+                  <Link to="/login"> Login Here</Link>
                 </div>
               </Form>
             </Card.Body>
@@ -97,17 +144,17 @@ function Registration() {
     </Container>
   );
 
-  const renderSuccess =(
+  const renderSuccess = (
     <Container>
       <Row>
-      <Col className = "pd25">    
-          <img src='.\media\website.png' height="300" width="300" class/>
-        </Col>        
-        <Col className = "pd25">
+        <Col className="pd25">
+          <img src='.\media\website.png' height="300" width="300" class />
+        </Col>
+        <Col className="pd25">
           <Card>
             <Card.Body >
-              Succesfully Registered 
-              <Link to= "/login"> Login Here</Link>
+              Succesfully Registered
+              <Link to="/login"> Login Here</Link>
 
             </Card.Body>
           </Card>
@@ -117,14 +164,14 @@ function Registration() {
   );
 
   return (
-    <div className ="app">    
-      <div style={{display:'flex', justifyContent:'center'}}>
-        <div className = "title">
+    <div className="app">
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <div className="title">
         </div>
-        {isRegistered ?renderSuccess:renderRegistrationForm}
+        {isRegistered ? renderSuccess : renderRegistrationForm}
       </div>
     </div>
-    
+
   );
 }
 
