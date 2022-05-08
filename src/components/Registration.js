@@ -10,8 +10,9 @@ import { Link } from "react-router-dom";
 
 function Registration() {
   const [errorMessages, setErrorMessages] = useState({});
-
   const [isRegistered, setIsRegistered] = useState(false);
+  const strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+
 
   const [user, setUser] = useState({
     studentId: "",
@@ -32,22 +33,28 @@ function Registration() {
   }
 
   console.table(user)
-
+  
   const handleSubmitReg = (event) => {
     event.preventDefault();
     // studentId 10 digits
-
+    const regEx = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
     const { password, confirmPassword, studentId } = user
 
     if (studentId.length === 10) {
-      // password === confirmPassword
-      if (password === confirmPassword) {
-        setIsRegistered(true);
-        // save to local storage the user attributes
-        localStorage.setItem("user", JSON.stringify(user));
-        alert("Registration successful! User details are saved to our system.")
-      } else {
-        alert("Password does not match. Please re enter both fields correctly.")
+      if(!strongRegex.test(password))
+      {
+        alert("Pass must be at least 8 characters cotains uppercase lowecase and special characters")
+
+      }else{  
+        // password === confirmPassword
+        if(password === confirmPassword){
+          setIsRegistered(true);
+          // save to local storage the user attributes
+          localStorage.setItem("user", JSON.stringify(user));
+          alert("Registration successful! User details are saved to our system.")
+        }else{
+          alert("Password does not match. Please re enter both fields correctly.")
+        }
       }
     } else {
       alert("Please enter a valid student ID No. with exactly 10 digits.")
