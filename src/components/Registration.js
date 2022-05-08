@@ -43,7 +43,7 @@ function Registration() {
     if (studentId.length === 10) {
       if(!strongRegex.test(password))
       {
-        alert("Pass must be at least 8 characters cotains uppercase lowecase and special characters")
+        alert("Pass must be at least 8 characters cotains uppercase lowercase and special characters")
 
       }else{  
         // password === confirmPassword
